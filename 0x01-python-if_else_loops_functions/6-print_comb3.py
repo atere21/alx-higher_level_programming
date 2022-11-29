@@ -4,5 +4,5 @@ for i in range(0, 9):
         if j > i:
             if i != 8:
                 print("{}{}, ".format(i, j), end="")
-            else:
+            else if:
                 print("{}{}".format(i, j))
