@@ -1,19 +1,12 @@
 #!/usr/bin/python3
-""" Roman to Integer test file
-"""
-roman_to_int = __import__('12-roman_to_int').roman_to_int
 
-roman_number = "X"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
-roman_number = "VII"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-
-roman_number = "IX"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-
-roman_number = "LXXXVII"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
-
-roman_number = "DCCVII"
-print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+def roman_to_int(roman_string):
+    if not roman_string or type(roman_string) != str:
+        return 0
+    total = 0
+    digits = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
+    for roman in reversed(roman_string):
+        arabic = digits[roman]
+        total += arabic if total < arabic * 5 else -arabic
+    return total
