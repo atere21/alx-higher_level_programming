@@ -1,34 +1,26 @@
 #!/usr/bin/python3
 """
-Function that divides elements of a matrix
+Function that prints My name is <first name> <last name>
 """
 
 
-def matrix_divided(matrix, div):
-        """
-            Divides all elements of a matrix
-                Arguments:
-                    matrix: must be a list of lists ints or floats
-                        with rows of the same size
-                            div: must be a number int or float and not 0
-                                Result is rounded to 2 decimal places
-                                    and a new matrix is generated
-                                        Raise TypeError or ZeroDivisionError if conditions not
-                                            met
-                                                """
+def say_my_name(first_name, last_name=""):
+    """
+    Prints a Name
+    Arguments:
+    first_name: must be a string
+    last_name: must be a string, if no argument given, then empty by default
+    Otherwise a TypeError is raised
+    """
+    if not isinstance(first_name, str):
+        msg = "first_name must be a string"
+        raise TypeError(msg)
 
-                                                    if not matrix or \
-                                                                   not isinstance(matrix, list) or \
-                                                                          not all(isinstance(i, list) for i in matrix) or \
-                                                                                 not all(len(j) for j in matrix) or \
-                                                                                        not all([all(isinstance(k, (int, float)) for k in m) for m in matrix]):
+    if not isinstance(last_name, str):
+        msg = "last_name must be a string"
+        raise TypeError(msg)
 
-                                                                                                    msg = "matrix must be a matrix (list of lists) of integers/floats"
-                                                                                                            raise TypeError(msg)
-
-                                                                                                            checkl = [len(r) for r in matrix]
-
-                                                                                                                if len(set(checkl)) != 1:
+    print("My name is {} {}".format(first_name, last_name))                                                                                        if len(set(checkl)) != 1:
                                                                                                                             msg = "Each row of the matrix must have the same size"
                                                                                                                                     raise TypeError(msg)
 
