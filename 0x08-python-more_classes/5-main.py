@@ -7,8 +7,6 @@ print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perime
 del my_rectangle
 
 try:
-        print(my_rectangle)
+    print(my_rectangle)
 except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-
+    print("[{}] {}".format(e.__class__.__name__, e))
