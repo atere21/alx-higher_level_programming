@@ -1,25 +1,57 @@
-#!/usr/bin/python3
-"""
-Function that prints a square with the character '#'
-"""
+The ``4-print_square`` module
+============================
 
+Using ``print_square``
+---------------------
 
-def print_square(size):
-        """
-            Prints a square using the '#' character
-                Arguments:
-                    size: is the size length of the square
-                        it must be a interger otherwise a TypeError will be raised
-                            is size is less than 0, a ValueError will be raise
-                                """
+Importing function from the module:
 
-                                    if not isinstance(size, int):
-                                                msg = "size must be an integer"
-                                                        raise TypeError(msg)
+    >>> print_square = __import__('4-print_square').print_square
 
-                                                        if size < 0:
-                                                                    msg = "size must be >= 0"
-                                                                            raise ValueError(msg)
+Printing a square with a size of 5
 
-                                                                            for i in range(size):
-                                                                                        print('#' * size)
+    >>> print_square(5)
+    #####
+    #####
+    #####
+    #####
+    #####
+
+Passing 0 as the size of the square
+
+    >>> print_square(0)
+
+Passing a float number as the size of the square
+
+    >>> print_square(1.0)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: size must be an integer
+
+Passing a string as the size of the square
+
+    >>> print_square('2')
+    Traceback (most recent call last):
+    	      ...
+    TypeError: size must be an integer
+
+Passing a negative number as the size of the square
+
+    >>> print_square(-2)
+    Traceback (most recent call last):
+    	     ...
+    ValueError: size must be >= 0
+
+Passing None as the size of the square
+
+    >>> print_square(None)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: size must be an integer
+
+Missing argument
+
+   >>> print_square()
+   Traceback (most recent call last):
+   	     ...
+   TypeError: print_square() missing 1 required positional argument: 'size'
