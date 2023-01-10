@@ -1,39 +1,29 @@
 #!/usr/bin/python3
 """
-Function that prints a text with 2 new lines after each of these characters:
-    . ? and :
+Module composed by a function that prints 2 new lines after ".?:" characters
+"""
+
+
+def text_indentation(text):
+    """ Function that prints 2 new lines after ".?:" characters
+    Args:
+        text: input string
+    Returns:
+        No return
+    Raises:
+        TypeError: If text is not a string
     """
 
+    if type(text) is not str:
+        raise TypeError("text must be a string")
 
-    def text_indentation(text):
-            """
-                Prints a text replace some characters with 2 newlines
-                    Arguments:
-                        text: must be a string
-                            If not a string a TypeError is raised
-                                There is no space at the beginning at the end of each printed line
-                                    """
+    s = text[:]
 
-                                        if not isinstance(text, str):
-                                                    msg = "text must be a string"
-                                                            raise TypeError(msg)
+    for d in ".?:":
+        list_text = s.split(d)
+        s = ""
+        for i in list_text:
+            i = i.strip(" ")
+            s = i + d if s is "" else s + "\n\n" + i + d
 
-                                                            if len(text) == 0:
-                                                                        print(end='')
-                                                                                return None
-
-                                                                                textlist = []
-                                                                                    mark = 0
-
-                                                                                        for i in range(len(text)):
-                                                                                                    if text[i] == '.' or text[i] == '?' or text[i] == ':':
-                                                                                                                    textlist.append(text[mark: i + 1] + "\n\n")
-                                                                                                                                mark = i + 1
-
-                                                                                                                                    textlist.append(text[mark:i + 1])
-
-                                                                                                                                        textlist = [i.strip(' ') for i in textlist]
-
-                                                                                                                                            new_text = "".join(textlist)
-
-                                                                                                                                                print(new_text, end='')
+    print(s[:-3], end="")
