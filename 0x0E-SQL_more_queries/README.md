@@ -1,0 +1,1 @@
+solutions to more queries
