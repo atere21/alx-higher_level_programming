@@ -11,19 +11,19 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
-        """
-            Deletes State objects on the database.
-                """
+    """
+    Deletes State objects on the database.
+    """
 
-                    db_uri = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-                                    argv[1], argv[2], argv[3])
-                        engine = create_engine(db_uri)
-                            Session = sessionmaker(bind=engine)
+    db_uri = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+        argv[1], argv[2], argv[3])
+    engine = create_engine(db_uri)
+    Session = sessionmaker(bind=engine)
 
-                                session = Session()
+    session = Session()
 
-                                    for instance in session.query(State).filter(State.name.contains('a')):
-                                                session.delete(instance)
+    for instance in session.query(State).filter(State.name.contains('a')):
+        session.delete(instance)
 
-                                                    session.commit()
-                                                        session.close()
+    session.commit()
+    session.close()
